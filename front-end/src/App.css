@@ -23,6 +23,27 @@
   background-color: #61dafb;
 }
 
+.register{
+  margin-left: 200px;
+}
+
+.appbutton{
+  margin:   25px;
+  padding: 10px;
+  width: 150px;
+  background-color: #61dafb;
+  border: none;
+  cursor: pointer;
+}
+.inputBox{
+  display: block;
+  margin: 10px;
+  padding: 7px;
+  width: 300px;
+  border: 1px solid #61dafb;
+
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

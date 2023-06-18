@@ -2,6 +2,7 @@ import './App.css';
 import Footer from './Components/Footer';
 import Nav from './Components/Nav';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SignUp from './Components/SignUp';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/update" element={<h1>Update Product component</h1>}/>
         <Route path="/logout" element={<h1>Logout component</h1>}/>
         <Route path="/profile" element={<h1>Profile component</h1>}/>
+        <Route path="/signup" element={<SignUp/>}/>
 
       </Routes>
       </BrowserRouter>
@@ -23,3 +25,4 @@ function App() {
 }
 
 export default App;
+ 
