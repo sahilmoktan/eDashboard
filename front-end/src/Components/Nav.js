@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Nav=()=>{
 
     const auth = localStorage.getItem('user')  
+    const navigate = useNavigate()
+    const logout =()=>{
+        localStorage.clear()
+        navigate("/")
+    }
 
   
     return(
@@ -15,7 +20,7 @@ const Nav=()=>{
                 <li><Link to="/update">Update Products</Link></li>
            
                 <li><Link to="/profile">Profile</Link></li>
-                <li>{auth?<Link to="/logout">Logout</Link>:<Link to="/signUp">SignUp</Link>}</li>
+                <li>{auth?<Link onClick={logout} to="/signUp">Logout</Link>:<Link to="/signUp">SignUp</Link>}</li>
             </ul>
             
         </div>
