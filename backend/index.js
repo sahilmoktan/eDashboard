@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/register", async (req, res) => {
-  res.send("register app is working hai...!");
+  // res.send("register app is working hai...!");
 
   const user =  await Users.create(req.body);
-  res.json({ message: "User Register successfully" });
+  return res.json({ message: "User Register successfully" });
   
 });
 
