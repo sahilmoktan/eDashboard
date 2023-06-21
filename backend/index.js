@@ -14,8 +14,8 @@ app.post("/register", async (req, res) => {
   // res.send("register app is working hai...!");
 
   const user =  await Users.create(req.body);
-  return res.json({ message: "User Register successfully" });
-  
+  res.json({ message:  "User Register successfully" })
+  console.log(user)
 });
 
 app.listen(5000);
