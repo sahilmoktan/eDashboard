@@ -10,23 +10,26 @@ const Nav=()=>{
         localStorage.clear()
         navigate("/")
     }
-
+    console.log(auth)
   
     return(
         <div>
-            <ul className="nav-ul">
+            <img alt="logo" className="logo" src="https://avatars.githubusercontent.com/u/103031235?v=4"/>
+            {auth?
+                <ul className="nav-ul">
                 <li><Link to="/">Products</Link></li>
                 <li><Link to="/add">Add Products</Link></li>
                 <li><Link to="/update">Update Products</Link></li>
            
                 <li><Link to="/profile">Profile</Link></li>
-                {
-                    auth? <li><Link onClick={logout} to="/signUp">Logout</Link></li>: <>
-                    <li><Link to="/signUp">SignUp</Link></li>
+                <li><Link onClick={logout} to="/login">Logout({JSON.parse(auth).name})</Link></li>
+                
+                </ul>:
+                
+                <ul className="nav-ul NAV-RIGHT">
+                <li><Link to="/signUp">SignUp</Link></li>
                 <li><Link to="/login">Login</Link></li>
-                    </>
-                }
-            </ul>
+                </ul>}
             
         </div>
 

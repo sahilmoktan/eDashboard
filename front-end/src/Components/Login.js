@@ -26,8 +26,8 @@ function Login() {
         result = await result.json()
         console.warn(result)
         
-        if(result.user){
-            console.log('am hit')
+        if(result.name){
+            
             localStorage.setItem('user',JSON.stringify(result))
             navigate('/')
         } else{

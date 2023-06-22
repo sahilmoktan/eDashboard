@@ -28,7 +28,7 @@ app.post("/login", async (req, res) => {
     const user = await Users.findOne({ email }). select("-password")
     if (user){
       console.log(user);
-      res.send({user})
+      res.send(user)
     }else{
       res.send("User not found") 
     }

@@ -31,8 +31,8 @@ function SignUp() {
     };
     fetch("http://localhost:5000/register", result);
     if (result){
-      localStorage.setItem("user", JSON.stringify(result))
-      navigate('/')
+      // localStorage.setItem("user", JSON.stringify(result))
+      navigate('/login')
     }
 
     console.log(result);
