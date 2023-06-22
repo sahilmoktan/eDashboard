@@ -18,4 +18,22 @@ app.post("/register", async (req, res) => {
   console.log(user)
 });
 
+app.post("/login", async (req, res) => {
+    
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("All fields are Mandatory");
+  }
+  const user = await Users.findOne({ email }). select("-password")
+if (user){
+  console.log(user);
+  res.send({user})
+}else{
+  res.send("User not found")
+}
+});
+
+
+
 app.listen(5000);

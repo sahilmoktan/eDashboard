@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -21,6 +21,7 @@ const Nav=()=>{
            
                 <li><Link to="/profile">Profile</Link></li>
                 <li>{auth?<Link onClick={logout} to="/signUp">Logout</Link>:<Link to="/signUp">SignUp</Link>}</li>
+                <li><Link to="/login">Login</Link></li>
             </ul>
             
         </div>

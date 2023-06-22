@@ -62,8 +62,7 @@ function SignUp() {
         placeholder="Enter Password"
       />
       <button onClick={collectData} className="appbutton" type="button">
-        {" "}
-        Sign Up
+      Sign Up
       </button>
     </div>
   );
