@@ -22,16 +22,18 @@ app.post("/login", async (req, res) => {
     
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(400);
-    throw new Error("All fields are Mandatory");
+    res.status(400).send ("All fields are Mandatory");
+  }else{
+
+    const user = await Users.findOne({ email }). select("-password")
+    if (user){
+      console.log(user);
+      res.send({user})
+    }else{
+      res.send("User not found") 
+    }
   }
-  const user = await Users.findOne({ email }). select("-password")
-if (user){
-  console.log(user);
-  res.send({user})
-}else{
-  res.send("User not found")
-}
+
 });
 
 

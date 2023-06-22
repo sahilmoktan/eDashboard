@@ -33,7 +33,7 @@
 }
 
 .appbutton{
-  margin:   25px;
+  margin-top:   25px;
   padding: 10px;
   width: 150px;
   background-color: #61dafb;
@@ -42,7 +42,7 @@
 }
 .inputBox{
   display: block;
-  margin: 10px;
+  margin-top: 10px;
   padding: 7px;
   width: 300px;
   border: 1px solid #61dafb;
