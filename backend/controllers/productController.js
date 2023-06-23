@@ -20,9 +20,18 @@ const getProducts= asyncHandler(async (req, res) => {
 })
 
 const deletProducts = asyncHandler(async (req, res) => { 
-
+    
     const result= await Product.deleteOne({_id:req.params.id})
     res.send(result)
+})
+
+const getOneProduct = asyncHandler(async (req, res) => { 
+    let result = await Product.findOne({_id:req.params.id})
+    if (result){
+        res.send(result)
+    } else{
+        res.send("No product record found")
+    }
 })
 
 
@@ -31,6 +40,7 @@ const deletProducts = asyncHandler(async (req, res) => {
 module.exports = {
     registerProduct,
     getProducts,
-    deletProducts
+    deletProducts,
+    getOneProduct
   };
   
