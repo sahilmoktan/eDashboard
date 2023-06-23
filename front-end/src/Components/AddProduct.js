@@ -1,13 +1,25 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 function AddProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setcategory] = useState("");
   const [company, setcompany] = useState("");
-  const addproduct=()=>{
-    console.warn(name,price,category,company)
-  }
+  const addproduct = async () => {
+    console.warn(name, price, category, company);
+    // const userId = JSON.parse(localStorage.getItem("user"))._id;
+
+    let result = await fetch("http://localhost:5000/api/products/add-product", {
+      method: "post",
+      body: JSON.stringify({ name, price, category, company }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json()
+    console.warn(result)
+
+  };
 
   return (
     <div className="product">

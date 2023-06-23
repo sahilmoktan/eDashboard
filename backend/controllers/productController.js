@@ -9,7 +9,20 @@ const registerProduct = asyncHandler(async (req, res) => {
     res.send(result)
 })
 
+const getProducts= asyncHandler(async (req, res) => {
+
+    let products = await Product.find()
+    if (products.length>0){
+        res.send(products)
+    }else{
+        res.send("no product found")
+    }
+})
+
+
+
 module.exports = {
-    registerProduct
+    registerProduct,
+    getProducts
   };
   

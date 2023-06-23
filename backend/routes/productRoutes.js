@@ -3,11 +3,12 @@ const router = express.Router();
 
 const {
 registerProduct,
-  
-  } = require("../controllers/productController");
+getProducts
+} = require("../controllers/productController");
 
 
 router.post("/add-product", registerProduct);
+router.get("/products", getProducts);
 
 
 
