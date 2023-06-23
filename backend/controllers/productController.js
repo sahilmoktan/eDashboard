@@ -10,7 +10,7 @@ const registerProduct = asyncHandler(async (req, res) => {
 })
 
 const getProducts= asyncHandler(async (req, res) => {
-
+    
     let products = await Product.find()
     if (products.length>0){
         res.send(products)
@@ -19,10 +19,18 @@ const getProducts= asyncHandler(async (req, res) => {
     }
 })
 
+const deletProducts = asyncHandler(async (req, res) => { 
+
+    const result= await Product.deleteOne({_id:req.params.id})
+    res.send(result)
+})
+
+
 
 
 module.exports = {
     registerProduct,
-    getProducts
+    getProducts,
+    deletProducts
   };
   

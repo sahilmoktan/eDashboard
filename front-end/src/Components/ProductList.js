@@ -13,6 +13,18 @@ function ProductList() {
         setProducts(result)
     }
     console.warn(products)
+    
+    const deleteProduct=async(_id)=>{
+        console.warn(_id)
+        let result = await fetch(`http://localhost:5000/api/products/product/${_id}`, {
+            method: "DELETE",
+        });
+        result= await result.json()
+        if(result){
+            getProducts()
+            alert('record deleted')
+        }
+    }
 
 
   return (
@@ -23,14 +35,17 @@ function ProductList() {
             <li>Product Name</li>
             <li>Price</li>
             <li>Category</li>
+            <li>Operation</li>
         </ul>
         {
             products.map((item, index)=>
-            <ul>
+            <ul key={item._id}>
+
             <li>{index+1}</li>
             <li>{item.name}</li>
             <li>Rs.{item.price}</li>
             <li>{item.category}</li>
+            <li><button>Update</button><button onClick={()=>deleteProduct(item._id)}>Delete</button></li>
             </ul>
             )
         }
