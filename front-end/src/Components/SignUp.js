@@ -29,7 +29,7 @@ function SignUp() {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ name, email, password }),
     };
-    fetch("http://localhost:5000/register", result);
+    fetch("http://localhost:5000/api/users/register", result);
     if (result){
       // localStorage.setItem("user", JSON.stringify(result))
       navigate('/login')
@@ -62,7 +62,7 @@ function SignUp() {
         placeholder="Enter Password"
       />
       <button onClick={collectData} className="appbutton" type="button">
-      Sign Up
+      Register Me
       </button>
     </div>
   );
