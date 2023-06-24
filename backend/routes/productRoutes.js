@@ -5,8 +5,9 @@ const {
 registerProduct,
 getProducts,
 deletProducts,
+updateProduct,
 getOneProduct,
-updateProduct
+searchProducts
 
 } = require("../controllers/productController");
 
@@ -14,8 +15,9 @@ updateProduct
 router.post("/add-product", registerProduct);
 router.get("/products", getProducts);
 router.delete("/product/:id", deletProducts);
-router.get("/product/:id", getOneProduct);
 router.put("/product/:id", updateProduct);
+router.get("/product/:id", getOneProduct);
+router.get("/search/:key", searchProducts);
 
 
 
