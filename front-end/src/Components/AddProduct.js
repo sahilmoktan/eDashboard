@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setcategory] = useState("");
   const [company, setcompany] = useState("");
+  const navigate = useNavigate()
+  
   const addproduct = async () => {
     console.warn(name, price, category, company);
     // const userId = JSON.parse(localStorage.getItem("user"))._id;
@@ -18,6 +21,9 @@ function AddProduct() {
     });
     result = await result.json()
     console.warn(result)
+    if(result){
+        navigate('/')
+    }
 
   };
 

@@ -34,6 +34,17 @@ const getOneProduct = asyncHandler(async (req, res) => {
     }
 })
 
+const updateProduct = asyncHandler(async (req, res) => { 
+    
+    let result = await Product.updateOne(
+
+        { _id:req.params.id},
+        {
+            $set : req.body
+        }
+    )
+    res.send(result)
+})
 
 
 
@@ -41,6 +52,7 @@ module.exports = {
     registerProduct,
     getProducts,
     deletProducts,
-    getOneProduct
+    getOneProduct,
+    updateProduct
   };
   
