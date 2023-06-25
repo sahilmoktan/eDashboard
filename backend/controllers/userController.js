@@ -30,7 +30,7 @@ const loginUser = asyncHandler(async (req, res) => {
         process.env.ACCESS_TOKEN_SECERT,
         { expiresIn: "15m" }
       );
-      res.status(200).json({ accessToken })
+      res.status(200).json({ accessToken, user })
       // .send(user)
     } else {
       res.send("User not found");

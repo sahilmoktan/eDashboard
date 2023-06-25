@@ -9,7 +9,11 @@ function ProductList() {
   }, []);
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/api/products/products");
+    let result = await fetch("http://localhost:5000/api/products/products",{
+      headers:{
+        authorization: JSON.parse(localStorage.getItem('token'))
+      }
+    });
     result = await result.json();
     setProducts(result);
   };
