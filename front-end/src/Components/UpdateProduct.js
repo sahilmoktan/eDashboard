@@ -17,7 +17,11 @@ function UpdateProduct() {
   const getProductDetails = async () => {
     console.warn(params);
     let result = await fetch(
-      `http://localhost:5000/api/products/product/${params.id}`
+      `http://localhost:5000/api/products/product/${params.id}`,{
+        headers:{
+          authorization:` bearer ${JSON.parse(localStorage.getItem('token'))}`
+        }
+      }
     );
     result = await result.json();
     setName(result.name);
@@ -40,6 +44,7 @@ function UpdateProduct() {
         body: JSON.stringify({ name, price, category, company }),
         headers: {
           "Content-Type": "application/json",
+          authorization:` bearer ${JSON.parse(localStorage.getItem('token'))}`
         },
       }
     );
